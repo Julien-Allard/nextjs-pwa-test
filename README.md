@@ -1,36 +1,32 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a test for a PWA (Progressive Web App). It contains the base skeleton for a working PWA which can be installed on any device (but does basically nothing).
 
-## Getting Started
+### 1-A Run it locally
 
-First, run the development server:
+Run :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm cleanStart
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1-B Run it online
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This has been deployed on Netlify at [this address](https://nextpwatesting.netlify.app/).
 
-## Learn More
+### 2 Try it
 
-To learn more about Next.js, take a look at the following resources:
+#### - On a computer :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To the right of the URL bar you will have a litle icon looking like a computer with an arrow on it. If you put your mouse cursor on top of this icon you'll get the message "Installer My Next.js PWA". Click.
+You'll get a prompt asking you if you want to install it, click on install.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### - On a mobile/tablet device :
 
-## Deploy on Vercel
+Click on the options menu (generally looks like 3 dots on top of each other) then on the "Add to homepage" option. You'll get a prompt asking you if you want to install it, click on install. It will ask you for installation permission if you never allowed it before, then download the app and add it on your mobile's homescreen.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Powered by
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Next.js (Vercel)](https://nextjs.org/)
+[next-pwa](https://www.npmjs.com/package/next-pwa)
