@@ -1,9 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 This is a test for a PWA (Progressive Web App). It contains the base skeleton for a working PWA which can be installed on any device (but does basically nothing).
 
-### 1-A Run it locally
+## 1 Run it :
 
-Run :
+#### Locally :
 
 ```bash
 npm cleanStart
@@ -11,11 +11,11 @@ npm cleanStart
 
 Then open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### 1-B Run it online
+#### Online :
 
 This has been deployed on Netlify at [this address](https://nextpwatesting.netlify.app/).
 
-### 2 Try it
+## 2 Try it
 
 #### - On a computer :
 
@@ -29,4 +29,5 @@ Click on the options menu (generally looks like 3 dots on top of each other) the
 ## Powered by
 
 [Next.js (Vercel)](https://nextjs.org/)
+
 [next-pwa](https://www.npmjs.com/package/next-pwa)
