@@ -5,9 +5,8 @@
 
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
@@ -31,7 +30,6 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  grid-row-start: 2;
 }
 
 .main ol {
@@ -68,10 +66,7 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -92,16 +87,33 @@ a.secondary {
   min-width: 158px;
 }
 
+.scanner {
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer a {
-  display: flex;
+  display: block;
   align-items: center;
   gap: 8px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.footer span {
+  display: block;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
 }
 
 .footer img {
