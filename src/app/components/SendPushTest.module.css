@@ -1,0 +1,21 @@
+.pushButton {
+  width: 50%;
+  border-radius: 10px;
+  border-color: transparent;
+  background: white;
+  color: black;
+  font-family: "Geist", "Geist Fallback";
+  font-weight: bold;
+  padding: 5px 0 5px 0;
+  margin-top: 15px;
+}
+
+.pushButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.pushButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

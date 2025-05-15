@@ -1,12 +1,16 @@
-import Image from "next/image";
+// import Image from "next/image";
+import { FC } from "react";
+
 import styles from "./page.module.css";
 import QRCodeScanner from "./components/QRCodeScanner";
+import InitPushNotifications from "./components/InitPushNotifications";
+import SendPushTest from "./components/SendPushTest";
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
+        {/* <Image
           className={styles.logo}
           src="/next.svg"
           alt="Next.js logo"
@@ -45,10 +49,15 @@ export default function Home() {
           >
             Read our docs
           </a>
-        </div>
+        </div> */}
         <div className={styles.scanner}>
           <p>Test du lecteur de QR codes</p>
           <QRCodeScanner />
+        </div>
+        <div className={styles.pushNotifications}>
+          <p>Test des push notifications Firebase</p>
+          <SendPushTest />
+          <InitPushNotifications />
         </div>
       </main>
       <footer className={styles.footer}>
@@ -63,4 +72,6 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+};
+
+export default Home;

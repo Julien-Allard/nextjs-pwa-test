@@ -1,0 +1,12 @@
+.tokenAlert {
+  color: red;
+}
+
+.token {
+  overflow-wrap: break-word;
+}
+
+.token:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
