@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleAuth } from "google-auth-library";
 
-const projectId = process.env.FIREBASE_PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 
 async function getAccessToken() {
   const auth = new GoogleAuth({
