@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleAuth } from "google-auth-library";
+import { JWT } from "google-auth-library";
 
 const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 
 async function getAccessToken() {
-  const auth = new GoogleAuth({
+  const client = new JWT({
+    email: process.env.FIREBASE_CLIENT_EMAIL,
+    key: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
     scopes: ["https://www.googleapis.com/auth/firebase.messaging"],
   });
-  const client = await auth.getClient();
-  const tokenResponse = await client.getAccessToken();
-  return tokenResponse.token;
+
+  const tokenResponse = await client.authorize();
+  return tokenResponse.access_token;
 }
 
 export async function POST(req: NextRequest) {
