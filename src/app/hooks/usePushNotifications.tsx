@@ -6,9 +6,16 @@ import { useRouter } from "next/navigation";
 
 const vapidKey =
   "BJKf8cOnL9Ti6CLlZop0B1bjlqxXMn-Uaigzfy4PXVI8qT3DXbYNlNLkjsJkUmlvmUn2hrKW_M7ODr1WiDaXJWg";
+interface NotificationType {
+  title: string;
+  body: string;
+  url: string;
+}
 
 export function usePushNotifications() {
   const [FCMToken, setFCMToken] = useState<string | null>(null);
+  const [notificationObject, setNotificationObject] =
+    useState<NotificationType | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -40,10 +47,6 @@ export function usePushNotifications() {
             data: { url },
           });
 
-          if (confirm(`[MediFile] ${title}\n\n${body}`)) {
-            router.push(url);
-          }
-
           notification.onclick = () => {
             if (window.location.pathname !== url) {
               router.push(url);
@@ -54,6 +57,12 @@ export function usePushNotifications() {
         } else {
           alert(title + "\n" + body);
         }
+        // ✅ App is in foreground → use custom snackbar/modal
+        setNotificationObject({
+          title,
+          body,
+          url,
+        });
       });
 
       try {
@@ -77,5 +86,6 @@ export function usePushNotifications() {
       }
     });
   }, [router]);
-  return { FCMToken };
+
+  return { FCMToken, notificationObject, setNotificationObject };
 }
