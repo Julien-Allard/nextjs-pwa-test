@@ -45,7 +45,7 @@ export default function InitPushNotifications() {
       {notificationObject ? (
         <div
           style={{
-            position: "fixed",
+            position: "absolute",
             bottom: 20,
             right: 20,
             padding: 16,
@@ -53,7 +53,7 @@ export default function InitPushNotifications() {
             color: "#fff",
             borderRadius: 8,
             boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 1000,
+            zIndex: 9999,
           }}
         >
           <strong>{notificationObject.title}</strong>
