@@ -26,7 +26,7 @@ export default function InitPushNotifications() {
 
   return (
     <>
-      <div>
+      <div style={{ position: "relative" }}>
         <p style={{ marginBottom: 10 }}>
           FCM Token: {""}
           <span className={styles.tokenAlert}>
@@ -41,56 +41,56 @@ export default function InitPushNotifications() {
         >
           {FCMToken}
         </p>
-      </div>
-      {notificationObject ? (
-        <div
-          style={{
-            position: "absolute",
-            top: 20,
-            right: 20,
-            padding: 16,
-            background: "#333",
-            color: "#fff",
-            borderRadius: 8,
-            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 9999,
-          }}
-        >
-          <strong>{notificationObject.title}</strong>
-          <p>{notificationObject.body}</p>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <button
-              onClick={() => {
-                router.push(notificationObject.url);
-                setNotificationObject(null);
-              }}
-              style={{
-                borderRadius: 10,
-                borderColor: "transparent",
-                backgroundColor: "#ccc",
-                color: "black",
-                padding: "5px",
-                marginTop: "10px",
-              }}
-            >
-              Aller voir
-            </button>
-            <button
-              onClick={() => setNotificationObject(null)}
-              style={{
-                borderRadius: 10,
-                borderColor: "transparent",
-                backgroundColor: "#ccc",
-                color: "black",
-                padding: "5px",
-                marginTop: "10px",
-              }}
-            >
-              Ignorer
-            </button>
+        {notificationObject ? (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 20,
+              padding: 16,
+              background: "#333",
+              color: "#fff",
+              borderRadius: 8,
+              boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+              zIndex: 9999,
+            }}
+          >
+            <strong>{notificationObject.title}</strong>
+            <p>{notificationObject.body}</p>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button
+                onClick={() => {
+                  router.push(notificationObject.url);
+                  setNotificationObject(null);
+                }}
+                style={{
+                  borderRadius: 10,
+                  borderColor: "transparent",
+                  backgroundColor: "#ccc",
+                  color: "black",
+                  padding: "5px",
+                  marginTop: "10px",
+                }}
+              >
+                Aller voir
+              </button>
+              <button
+                onClick={() => setNotificationObject(null)}
+                style={{
+                  borderRadius: 10,
+                  borderColor: "transparent",
+                  backgroundColor: "#ccc",
+                  color: "black",
+                  padding: "5px",
+                  marginTop: "10px",
+                }}
+              >
+                Ignorer
+              </button>
+            </div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </>
   );
 }
