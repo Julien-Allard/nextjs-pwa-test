@@ -40,6 +40,10 @@ export function usePushNotifications() {
             data: { url },
           });
 
+          if (confirm(`[MediFile] ${title}\n\n${body}`)) {
+            router.push(url);
+          }
+
           notification.onclick = () => {
             if (window.location.pathname !== url) {
               router.push(url);
