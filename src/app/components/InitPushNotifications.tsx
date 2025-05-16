@@ -46,7 +46,7 @@ export default function InitPushNotifications() {
         <div
           style={{
             position: "absolute",
-            bottom: 20,
+            top: 20,
             right: 20,
             padding: 16,
             background: "#333",
