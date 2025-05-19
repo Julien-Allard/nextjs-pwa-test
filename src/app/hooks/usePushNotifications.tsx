@@ -44,23 +44,23 @@ export function usePushNotifications() {
           icon,
         });
 
-        // if (Notification.permission === "granted") {
-        //   const notification = new Notification(title, {
-        //     body,
-        //     icon,
-        //     data: { url },
-        //   });
+        if (Notification.permission === "granted") {
+          const notification = new Notification(title, {
+            body,
+            icon,
+            data: { url },
+          });
 
-        //   notification.onclick = () => {
-        //     if (window.location.pathname !== url) {
-        //       router.push(url);
-        //     }
-        //     window.focus();
-        //     notification.close();
-        //   };
-        // } else {
-        //   alert(title + "\n" + body);
-        // }
+          notification.onclick = () => {
+            if (window.location.pathname !== url) {
+              router.push(url);
+            }
+            window.focus();
+            notification.close();
+          };
+        } else {
+          alert(title + "\n" + body);
+        }
       });
 
       try {
