@@ -5,11 +5,13 @@ import styles from "./page.module.css";
 import QRCodeScanner from "./components/QRCodeScanner";
 import InitPushNotifications from "./components/InitPushNotifications";
 import SendPushTest from "./components/SendPushTest";
+import InstallPromptBanner from "./components/InstallPromptBanner";
 
 const Home: FC = () => {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <InstallPromptBanner />
         {/* <Image
           className={styles.logo}
           src="/next.svg"
