@@ -5,6 +5,7 @@ type NotificationPayload = {
   title: string;
   body: string;
   url: string;
+  icon: string;
 } | null;
 
 const NotificationContext = createContext<{

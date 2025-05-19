@@ -36,29 +36,31 @@ export function usePushNotifications() {
           "/icons/icon-192.png";
         const url = payload.data?.url || "/";
 
-        if (Notification.permission === "granted") {
-          const notification = new Notification(title, {
-            body,
-            icon,
-            data: { url },
-          });
-
-          notification.onclick = () => {
-            if (window.location.pathname !== url) {
-              router.push(url);
-            }
-            window.focus();
-            notification.close();
-          };
-        } else {
-          alert(title + "\n" + body);
-        }
         // ✅ App is in foreground → use custom snackbar/modal
         setNotification({
           title,
           body,
           url,
+          icon,
         });
+
+        // if (Notification.permission === "granted") {
+        //   const notification = new Notification(title, {
+        //     body,
+        //     icon,
+        //     data: { url },
+        //   });
+
+        //   notification.onclick = () => {
+        //     if (window.location.pathname !== url) {
+        //       router.push(url);
+        //     }
+        //     window.focus();
+        //     notification.close();
+        //   };
+        // } else {
+        //   alert(title + "\n" + body);
+        // }
       });
 
       try {
