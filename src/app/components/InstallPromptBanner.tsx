@@ -11,10 +11,6 @@ export default function InstallPromptBanner() {
   return isBannerShown ? (
     <div
       style={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        right: 0,
         background: "#1e1e1e",
         color: "white",
         padding: "0.5rem",
@@ -22,6 +18,7 @@ export default function InstallPromptBanner() {
         justifyContent: "space-between",
         alignItems: "center",
         zIndex: 9999,
+        height: "2rem",
       }}
     >
       <span>📲 Installez cette application sur votre appareil !</span>
@@ -33,7 +30,7 @@ export default function InstallPromptBanner() {
             color: "white",
             border: "none",
             borderRadius: "4px",
-            padding: "8px",
+            padding: "3px 8px 3px 8px",
             cursor: "pointer",
             marginLeft: "1rem",
           }}
@@ -45,7 +42,7 @@ export default function InstallPromptBanner() {
           style={{
             border: "none",
             borderRadius: "4px",
-            padding: "8px",
+            padding: "3px 8px 3px 8px",
             cursor: "pointer",
             marginLeft: "1rem",
           }}

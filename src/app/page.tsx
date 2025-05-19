@@ -7,12 +7,26 @@ import InitPushNotifications from "./components/InitPushNotifications";
 import SendPushTest from "./components/SendPushTest";
 import InstallPromptBanner from "./components/InstallPromptBanner";
 import DownloadFile from "./components/DownloadFile";
+import UpdatePromptBanner from "./components/UpdatePromptBanner";
 
 const Home: FC = () => {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <InstallPromptBanner />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.1rem",
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+        >
+          <UpdatePromptBanner />
+          <InstallPromptBanner />
+        </div>
         {/* <Image
           className={styles.logo}
           src="/next.svg"
