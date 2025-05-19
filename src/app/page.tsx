@@ -6,6 +6,7 @@ import QRCodeScanner from "./components/QRCodeScanner";
 import InitPushNotifications from "./components/InitPushNotifications";
 import SendPushTest from "./components/SendPushTest";
 import InstallPromptBanner from "./components/InstallPromptBanner";
+import DownloadFile from "./components/DownloadFile";
 
 const Home: FC = () => {
   return (
@@ -60,6 +61,10 @@ const Home: FC = () => {
           <p>Test des push notifications Firebase</p>
           <SendPushTest />
           <InitPushNotifications />
+        </div>
+        <div className={styles.pushNotifications}>
+          <p>Test téléchargement de fichiers</p>
+          <DownloadFile />
         </div>
       </main>
       <footer className={styles.footer}>

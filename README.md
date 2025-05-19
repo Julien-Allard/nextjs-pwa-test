@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-This is a test for a PWA (Progressive Web App). It contains the base skeleton for a working PWA which can be installed on any device (but does basically nothing).
+This is a test for a PWA (Progressive Web App). It contains the base skeleton for a working PWA which can be installed on any device.
+
+The goal is to test :
+
+- PWA structure and service workers
+- push notifications with Firebase
+- camera access and authorization with QR code scanner
+- install prompt on any device/brower
+- file download on any device/browser.
 
 ## 1 Run it :
 
