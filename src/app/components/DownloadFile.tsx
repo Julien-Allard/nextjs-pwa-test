@@ -5,7 +5,7 @@ export default function DownloadFile() {
   const [status, setStatus] = useState("");
 
   const downloadFile = async () => {
-    setStatus("Preparing...");
+    setStatus("Sélection...");
 
     try {
       const response = await fetch("/files/dltest.txt");
