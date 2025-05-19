@@ -3,6 +3,7 @@ import Script from "next/script";
 
 import type { Metadata } from "next";
 import "./globals.css";
+import { NotificationProvider } from "./context/NotificationContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <NotificationProvider>{children}</NotificationProvider>
 
         {/* Manually register the service worker in production */}
         <Script id="sw-register" strategy="afterInteractive">

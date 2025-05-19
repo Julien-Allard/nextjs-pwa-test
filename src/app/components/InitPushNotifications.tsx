@@ -1,30 +1,20 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePushNotifications } from "../hooks/usePushNotifications";
 import styles from "./InitPushNotifications.module.css";
 import { useRouter } from "next/navigation";
+import { useNotificationContext } from "../context/NotificationContext";
 
-interface InitPushNotificationsType {
-  FCMToken: string | null;
-  notificationObject: {
-    title: string;
-    body: string;
-    url: string;
-  } | null;
-  handleNotficationObjectDeletion: () => void;
-}
-
-export default function InitPushNotifications(
-  props: InitPushNotificationsType
-) {
-  const { FCMToken, notificationObject, handleNotficationObjectDeletion } =
-    props;
+export default function InitPushNotifications() {
+  const { notification, setNotification } = useNotificationContext();
+  const { FCMToken } = usePushNotifications();
   const [isTokenCopied, setIsTokenCopied] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
-    console.log(notificationObject);
-  }, [notificationObject]);
+    console.log(notification);
+  }, [notification]);
 
   const handleCopyToClipboard = (text: string | null) => {
     if (text) {
@@ -38,7 +28,7 @@ export default function InitPushNotifications(
   return (
     <>
       <div style={{ position: "relative" }}>
-        {notificationObject ? (
+        {notification ? (
           <div
             style={{
               // position: "absolute",
@@ -51,13 +41,13 @@ export default function InitPushNotifications(
               zIndex: 9999,
             }}
           >
-            <strong>{notificationObject.title}</strong>
-            <p>{notificationObject.body}</p>
+            <strong>{notification.title}</strong>
+            <p>{notification.body}</p>
             <div style={{ display: "flex", gap: "10px" }}>
               <button
                 onClick={() => {
-                  router.push(notificationObject.url);
-                  handleNotficationObjectDeletion();
+                  router.push(notification.url);
+                  setNotification(null);
                 }}
                 style={{
                   borderRadius: 10,
@@ -71,7 +61,7 @@ export default function InitPushNotifications(
                 Aller voir
               </button>
               <button
-                onClick={() => handleNotficationObjectDeletion()}
+                onClick={() => setNotification(null)}
                 style={{
                   borderRadius: 10,
                   borderColor: "transparent",

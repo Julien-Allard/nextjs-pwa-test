@@ -1,21 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
-import { messagingPromise } from "@/app/tools/firebase";
 import { getToken, onMessage } from "firebase/messaging";
 import { useRouter } from "next/navigation";
 
+import { messagingPromise } from "@/app/tools/firebase";
+import { useNotificationContext } from "../context/NotificationContext";
+
 const vapidKey =
   "BJKf8cOnL9Ti6CLlZop0B1bjlqxXMn-Uaigzfy4PXVI8qT3DXbYNlNLkjsJkUmlvmUn2hrKW_M7ODr1WiDaXJWg";
-interface NotificationType {
-  title: string;
-  body: string;
-  url: string;
-}
 
 export function usePushNotifications() {
   const [FCMToken, setFCMToken] = useState<string | null>(null);
-  const [notificationObject, setNotificationObject] =
-    useState<NotificationType | null>(null);
+  const { setNotification } = useNotificationContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -58,7 +54,7 @@ export function usePushNotifications() {
           alert(title + "\n" + body);
         }
         // ✅ App is in foreground → use custom snackbar/modal
-        setNotificationObject({
+        setNotification({
           title,
           body,
           url,
@@ -85,7 +81,7 @@ export function usePushNotifications() {
         console.error("Error getting token", err);
       }
     });
-  }, [router]);
+  }, [router, setNotification]);
 
-  return { FCMToken, notificationObject, setNotificationObject };
+  return { FCMToken };
 }
