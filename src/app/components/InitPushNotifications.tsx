@@ -1,12 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePushNotifications } from "../hooks/usePushNotifications";
 import styles from "./InitPushNotifications.module.css";
 import { useRouter } from "next/navigation";
 
-export default function InitPushNotifications() {
-  const { FCMToken, notificationObject, setNotificationObject } =
-    usePushNotifications();
+interface InitPushNotificationsType {
+  FCMToken: string | null;
+  notificationObject: {
+    title: string;
+    body: string;
+    url: string;
+  } | null;
+  handleNotficationObjectDeletion: () => void;
+}
+
+export default function InitPushNotifications(
+  props: InitPushNotificationsType
+) {
+  const { FCMToken, notificationObject, handleNotficationObjectDeletion } =
+    props;
   const [isTokenCopied, setIsTokenCopied] = useState(false);
 
   const router = useRouter();
@@ -37,7 +48,6 @@ export default function InitPushNotifications() {
               background: "#333",
               color: "#fff",
               borderRadius: 8,
-              boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
               zIndex: 9999,
             }}
           >
@@ -47,7 +57,7 @@ export default function InitPushNotifications() {
               <button
                 onClick={() => {
                   router.push(notificationObject.url);
-                  setNotificationObject(null);
+                  handleNotficationObjectDeletion();
                 }}
                 style={{
                   borderRadius: 10,
@@ -61,7 +71,7 @@ export default function InitPushNotifications() {
                 Aller voir
               </button>
               <button
-                onClick={() => setNotificationObject(null)}
+                onClick={() => handleNotficationObjectDeletion()}
                 style={{
                   borderRadius: 10,
                   borderColor: "transparent",

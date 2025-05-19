@@ -1,3 +1,4 @@
+"use client";
 // import Image from "next/image";
 import { FC } from "react";
 
@@ -5,8 +6,15 @@ import styles from "./page.module.css";
 import QRCodeScanner from "./components/QRCodeScanner";
 import InitPushNotifications from "./components/InitPushNotifications";
 import SendPushTest from "./components/SendPushTest";
+import { usePushNotifications } from "./hooks/usePushNotifications";
 
 const Home: FC = () => {
+  const { FCMToken, notificationObject, setNotificationObject } =
+    usePushNotifications();
+  const handleNotficationObjectDeletion = () => {
+    setNotificationObject(null);
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -57,7 +65,11 @@ const Home: FC = () => {
         <div className={styles.pushNotifications}>
           <p>Test des push notifications Firebase</p>
           <SendPushTest />
-          <InitPushNotifications />
+          <InitPushNotifications
+            FCMToken={FCMToken}
+            notificationObject={notificationObject}
+            handleNotficationObjectDeletion={handleNotficationObjectDeletion}
+          />
         </div>
       </main>
       <footer className={styles.footer}>
