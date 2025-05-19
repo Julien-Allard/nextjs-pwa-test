@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePushNotifications } from "../hooks/usePushNotifications";
 import styles from "./InitPushNotifications.module.css";
 import { useRouter } from "next/navigation";
@@ -12,10 +12,6 @@ export default function InitPushNotifications() {
 
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(notification);
-  }, [notification]);
-
   const handleCopyToClipboard = (text: string | null) => {
     if (text) {
       navigator.clipboard.writeText(text);
@@ -27,13 +23,13 @@ export default function InitPushNotifications() {
 
   return (
     <>
-      <div style={{ position: "relative" }}>
+      <div>
         {notification ? (
           <div
             style={{
-              // position: "absolute",
-              // top: 20,
-              // right: 20,
+              position: "absolute",
+              top: 20,
+              right: 20,
               padding: 16,
               background: "#333",
               color: "#fff",
