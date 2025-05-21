@@ -25,6 +25,10 @@ This has been deployed on Netlify at [this address](https://nextpwatesting.netli
 
 ## 2 Try it
 
+If everything happens as expected you should see a banner at the bottom of the screen. Just press install and follow the process.
+
+If not :
+
 #### - On a computer :
 
 To the right of the URL bar you will have a litle icon looking like a computer with an arrow on it. If you put your mouse cursor on top of this icon you'll get the message "Installer My Next.js PWA". Click.
